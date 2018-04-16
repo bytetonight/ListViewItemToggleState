@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listItemRoot"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
+
+    <!--
+    android:descendantFocusability="blocksDescendants" to the rootView
+    will prevent any clickable Views in this Layout from stealing focus
+    thereby allowing the entire View here to be clickable while containing
+    clickable Views that may want to achieve different functionality,
+    as opposed to adding android:focusable="false" to each clickable View
+    -->
+
+    <TextView
+        android:id="@+id/itemId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="1"/>
+</LinearLayout>
