@@ -2,7 +2,6 @@ package android.example.com.listviewitemtogglestate;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,29 +34,23 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
-    {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder holder = null;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(layoutResource, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
-        }
-        else
-        {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         final ListItem listItem = getItem(position);
 
         int color;
-        if (listItem.isSelected())
-        {
-            color = ContextCompat.getColor(getContext(), android.R.color.holo_blue_dark);
-
+        if (listItem.isSelected()) {
+            color = ContextCompat.getColor(context, android.R.color.holo_blue_dark);
         } else {
-            color = ContextCompat.getColor(getContext(), android.R.color.white);
+            color = ContextCompat.getColor(context, android.R.color.white);
         }
         holder.listItemRoot.setBackgroundColor(color);
         holder.itemId.setText(listItem.getIdString());
@@ -66,7 +58,7 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
         holder.button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "My Id is: "+listItem.getIdString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "My Id is: " + listItem.getIdString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,15 +79,13 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
         return convertView;
     }
 
-    public static class ViewHolder
-    {
+    public static class ViewHolder {
         TextView itemId;
         View listItemRoot;
         Button button1;
         Button button2;
 
-        ViewHolder(View v)
-        {
+        ViewHolder(View v) {
             itemId = v.findViewById(R.id.itemId);
             listItemRoot = v.findViewById(R.id.listItemRoot);
             button1 = v.findViewById(R.id.button1);
