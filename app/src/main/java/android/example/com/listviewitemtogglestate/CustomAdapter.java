@@ -1,6 +1,8 @@
 package android.example.com.listviewitemtogglestate;
 
 import android.content.Context;
+import android.content.Intent;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -68,6 +70,20 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
             }
         });
 
+        /**
+         * Adding an OnClickListener on the Intent Button
+         * using {@link CustomAdapter#context} in the Intent
+         * to request running {@link ChildActivity}
+         */
+        holder.button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoChildActivityIntent = new Intent(context, ChildActivity.class);
+                gotoChildActivityIntent.putExtra(Global.KEY_EXTRA_DATA, listItem);
+                context.startActivity(gotoChildActivityIntent);
+            }
+        });
+
         return convertView;
     }
 
@@ -76,12 +92,14 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
         TextView itemId;
         View listItemRoot;
         Button button1;
+        Button button2;
 
         ViewHolder(View v)
         {
             itemId = v.findViewById(R.id.itemId);
             listItemRoot = v.findViewById(R.id.listItemRoot);
             button1 = v.findViewById(R.id.button1);
+            button2 = v.findViewById(R.id.button2);
         }
     }
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ListViewItemToggleState</string>
     <string name="button1Text">Toast</string>
+    <string name="placeholder_text">An instance of ListItem with the id: %1s has been received</string>
 </resources>
