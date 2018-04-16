@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ListViewItemToggleState</string>
+    <string name="button1Text">Toast</string>
 </resources>

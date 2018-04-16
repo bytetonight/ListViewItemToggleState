@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -46,7 +48,7 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ListItem listItem = getItem(position);
+        final ListItem listItem = getItem(position);
 
         int color;
         if (listItem.isSelected())
@@ -59,7 +61,12 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
         holder.listItemRoot.setBackgroundColor(color);
         holder.itemId.setText(listItem.getIdString());
 
-
+        holder.button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "My Id is: "+listItem.getIdString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return convertView;
     }
@@ -68,11 +75,13 @@ public class CustomAdapter extends ArrayAdapter<ListItem> {
     {
         TextView itemId;
         View listItemRoot;
+        Button button1;
 
         ViewHolder(View v)
         {
             itemId = v.findViewById(R.id.itemId);
             listItemRoot = v.findViewById(R.id.listItemRoot);
+            button1 = v.findViewById(R.id.button1);
         }
     }
 }
