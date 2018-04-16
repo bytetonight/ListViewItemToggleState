@@ -9,6 +9,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This example allows for highlighting (selecting) ListItems in a ListView
+ * by means of adding a property to the actual ListItem which stores it's "selected" state
+ * in form of a simple boolean value
+ */
 public class MainActivity extends AppCompatActivity {
 
     List<ListItem> listItems;
