@@ -40,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                // Fetching the ListItem from the actual customAdapter here
+                // Fetching the clicked ListItem from the actual customAdapter via position as index
                 ListItem currentlyClickedItem = customAdapter.getItem(position);
+
+                // or from the AdapterView which is a param of the method we're currently in
+                ListItem currentlyClickedItem2 = (ListItem)adapterView.getItemAtPosition(position);
+
+                // Which of these ways you use, is up to you
 
                 /*
                 * If there was nothing clicked before
