@@ -46,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 // or from the AdapterView which is a param of the method we're currently in
                 ListItem currentlyClickedItem2 = (ListItem)adapterView.getItemAtPosition(position);
 
-                // Which of these ways you use, is up to you
+                // Which of the above two ways you use, is up to you
+
+
+
+                // Everything from here on, deals only with programmatic highlighting of selected list items
+                // if you don't need that, just skip
 
                 /*
                 * If there was nothing clicked before
